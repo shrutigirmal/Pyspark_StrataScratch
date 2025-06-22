@@ -1,0 +1,9 @@
+# Import your libraries
+import pyspark
+from pyspark.sql import functions as F
+
+# Start writing code
+emp=worker.groupBy("department").agg(F.count("worker_id").alias("cnt")).select("department","cnt")
+
+# To validate your solution, convert your final pySpark df to a pandas df
+emp.toPandas()
